@@ -1,37 +1,18 @@
 <html>
-  <head>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {% if title %}
-    <title>{{ title }} - microblog</title>
-    {% else %}
-    <title>Welcome to microblog</title>
-    {% endif %}
-  </head>
-  <!--div id="particles-js"></div-->
-  <body>
-    
-    <div>Microblog: <a href="/index">Home</a></div>
-    <hr>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }} </li>
-        {% endfor %}
-        </ul>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Microblog</title>
+      {% else %}
+      <title>Welcome to Microblog</title>
       {% endif %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
-  </body>
-
-
-  <footer>
-       <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
-       <script>
-         particlesJS.load('particles-js', "{{ url_for('static', filename='js/particles.json') }}", function () {
-           console.log('callback - particles.js config loaded');
-         });
-       </script>
-  </footer>
+    </head>
+    <body>
+            <div>
+                    Microblog:
+                    <a href="/index">Home</a>
+                    <a href="/login">Login</a>
+                </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
 </html>
